@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	
+	<link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+	
+		html {
+			background-color: white;
+		}
+	
+		body{
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: white;
+		}
+ 		
+		main {
+			height: 450px;
+			width: 700px;
+			display: flex;
+			box-shadow: 10px 40px 30px 0px rgb(240, 240, 240);
+			border-radius: 50px;
+		}
+		
+		.results-container {
+			background-image: linear-gradient(to bottom, #9933cc 0%, blue 70%);
+			width:50%;
+			height:100%;
+			border-radius: 50px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.summary-container {
+			background-color: white;
+			width:50%;
+			height:100%;
+			border-radius: 50px;
+		}
+		
+		.results-container h1, .results-container p {
+		
+			text-align: center;
+		}
+		
+		.results-container .result-circle {
+		
+			background-image: linear-gradient(to bottom, #9933cc -20%, blue 150%);
+			height: 200px;
+			width: 200px;
+			border-radius: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.results-container h1 {
+			color: rgb(220 220 220); 
+			font-weight: bold;
+			font-size: 24px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		
+		.grade {
+			color: white;
+			font-weight: bold;
+			font-size: 32px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		
+		.fact {
+			color: rgba(200, 200, 200, 0.8);
+			font-weight: bold;
+			font-size: 18px;
+			padding: 0 55px;
+		}
+		
+		.results-container .result-circle p {
+			color: rgba(200, 200, 200, 0.8);
+			font-weight: bold;
+			font-size: 18px;
+		}
+		
+		.results-container .result-circle span {
+			color: white;
+			font-weight: bold;
+			font-size: 80px;
+			line-height: 100px;
+		}
+		
+		.summary-content {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+		
+		.summary-container h2 {
+			color: rgb(50, 50, 90);
+			font-weight: bold;
+			font-size: 26px;
+			padding-top: 20px;
+		}
+		
+		.reaction-container, .memory-container, .verbal-container, .visual-container {
+			width: 100%;
+			height: 55px;
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transform-style: preserve-3d;
+  		position: relative;
+		}
+		
+		.reaction-container{
+			background-color: rgb(254.75, 242.25, 242.25);
+			margin-top: 20px;
+		}
+		
+		.memory-container{
+			background-color: rgb(254.75, 254.75, 242.25);
+			margin-top: 15px;
+		}
+		
+		.verbal-container{
+			background-color: rgb(242.25, 254.75, 242.25);
+			margin-top: 15px;
+		}
+		
+		.visual-container{
+			background-color: rgb(242.25, 242.25, 254.75);
+			margin-top: 15px;
+		}
+		
+		.custom-button{
+			background-color: rgb(50, 50, 90);
+			height: 50px;
+			width: 100%;
+			border-radius: 40px;
+			margin-top: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.custom-button:hover {
+			cursor: pointer;
+		}
+		
+		.summary-content h3 {
+			font-weight: bold;
+			font-size: 18px;
+			padding-left: 10px;
+		}
+		
+		.reaction-container h3 {
+			color: rgb(230, 80, 80);
+		}
+		
+		.memory-container h3 {
+			color: rgb(255, 190, 0);
+		}
+		
+		.verbal-container h3 {
+			color: rgb(0, 200, 0);
+		}
+		
+		.visual-container h3 {
+			color: rgb(0, 0, 220);
+		}
+		
+		.summary-content span {
+			font-weight: bold;
+			font-size: 18px;
+			color: rgb(50, 50, 90);
+		}
+		
+		.reaction-container p, .memory-container p, .verbal-container p, .visual-container p {
+			font-weight: bold;
+			font-size: 18px;
+			color: grey;
+			padding-right: 15px;
+		}
+		
+		.custom-button p {
+			font-weight: bold;
+			font-size: 18px;
+			color: white;
+		}
+		
+		.custom-button:active {
+			background-color: rgb(0, 0, 250);
+		} 
+		
+		.icon-heading-container {
+			display: flex;
+			padding-left: 15px;
+		}
+		
+		
+		
+		.edge01 {
+			background-color: rgb(240.5, 229.5, 229.5);
+			height: 20px;
+			width: 20px;
+			position: absolute;
+  		top: -0.3px;
+  		left: -0.3px;
+  		transform: translateZ(-10px);
+			border-radius: 30px;
+			
+		}
+		
+		.edge00 {
+			background-color: grey;
+			height: 20px;
+			width: 20px;
+			position: absolute;
+  		bottom: -0.5px;
+  		left: -0.6px;
+  		transform: translateZ(-10px);
+			border-radius: 30px;
+			
+		}
+		
+		.edge11 {
+			background-color: grey;
+			height: 20px;
+			width: 20px;
+			position: absolute;
+  		top: -0.3px;
+  		right: -0.3px;
+  		transform: translateZ(-10px);
+			border-radius: 30px;
+			
+		}
+		
+		.edge10 {
+			background-color: grey;
+			height: 20px;
+			width: 20px;
+			position: absolute;
+  		bottom: -0.5px;
+  		right: -0.6px;
+  		transform: translateZ(-10px);
+			border-radius: 30px;
+			
+		}
+		
+		.reaction-container .edge{
+			background-color: rgb(240.5, 229.5, 229.5);
+		}
+		
+		.memory-container .edge{
+			background-color: rgb(240.5, 240.5, 229.5);
+		}
+		
+		.verbal-container .edge{
+			background-color: rgb(229.5, 240.5, 229.5);
+		}
+		
+		.visual-container .edge{
+			background-color: rgb(229.5, 229.5, 240.5);
+		}
+		
+		
+		@media screen and (max-width: 550px) {
+			
+			body {
+				height: 175vh;
+			} 
+			
+			main {
+				flex-direction: column;
+				height: 175vh;
+				width: 100vw;
+			}
+			
+			.results-container {
+				height: 75vh;
+				width: 100%;
+				border-radius: 0px;
+				border-bottom-left-radius: 50px;
+				border-bottom-right-radius: 50px;
+			}
+			
+			.summary-container {
+				height: 100vh;
+				width: 100%;
+			}
+			
+			.reaction-container, .memory-container, .verbal-container, .visual-container {
+				height: 80px;
+			}
+
+			.reaction-container{
+				margin-top: 30px;
+			}
+
+			.memory-container{
+				margin-top: 25px;
+			}
+		
+			.verbal-container{
+				margin-top: 25px;
+			}
+
+			.visual-container{
+				margin-top: 25px;
+			}
+		
+			.custom-button{
+				height: 70px;
+			}
+		
+			.custom-button p{
+				font-size: 22px;
+			}
+			
+			.grade {
+				font-size: 40px;
+			}
+			
+			.fact {
+				font-size: 22px;
+				padding: 0 80px;
+			}
+			
+		}
+		
+		
+		
+  </style>
+</head>
+<body>
+
+<main>
+	<div class="results-container">
+		<h1>Your result</h1>
+		<div class="result-circle">
+			<p class="out-of"> <span class="result">76</span> <br> of 100</p>
+		</div>
+		<p class="grade">Great</p>
+		<p class="fact">You scored higher than 65% of the people who have taken these tests.</p>
+	</div>
+	
+	<div class="summary-container">
+		<div class="summary-content">
+			<h2>Summary</h2>
+			
+			<div class="reaction-container">
+				<div class="icon-heading-container">
+					<img src="assets/images/icon-reaction.svg" alt="icon">
+					<h3>Reaction</h3>
+				</div>
+				<p><span>80</span> / 100</p>
+				
+				<div class="edge01 edge"></div>
+				<div class="edge00 edge"></div>
+				<div class="edge11 edge"></div>
+				<div class="edge10 edge"></div>
+				
+			</div>
+			
+			<div class="memory-container">
+				<div class="icon-heading-container">
+					<img src="assets/images/icon-memory.svg" alt="icon">
+					<h3>Memory</h3>
+				</div>
+				<p><span>92</span> / 100</p>
+				
+				<div class="edge01 edge"></div>
+				<div class="edge00 edge"></div>
+				<div class="edge11 edge"></div>
+				<div class="edge10 edge"></div>
+				
+			</div>
+			
+			<div class="verbal-container">
+				<div class="icon-heading-container">
+					<img src="assets/images/icon-verbal.svg" alt="icon">
+					<h3>Verbal</h3>
+				</div>
+				<p><span>61</span> / 100</p>
+				
+				<div class="edge01 edge"></div>
+				<div class="edge00 edge"></div>
+				<div class="edge11 edge"></div>
+				<div class="edge10 edge"></div>
+				
+			</div>
+			
+			<div class="visual-container">
+				<div class="icon-heading-container">
+					<img src="assets/images/icon-visual.svg" alt="icon">
+					<h3>Visual</h3>
+				</div>
+				<p><span>72</span> / 100</p>
+				
+				<div class="edge01 edge"></div>
+				<div class="edge00 edge"></div>
+				<div class="edge11 edge"></div>
+				<div class="edge10 edge"></div>
+				
+			</div>
+		
+			<div class="custom-button">
+				<p>Continue</p>
+			</div>
+		</div>
+	</div>
+</main>
+
+</body>
+</html>
